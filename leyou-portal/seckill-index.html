@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<title>乐优商城--秒杀页面</title>
+	<link rel="icon" href="/assets/img/favicon.ico">
+	<script src="./js/vue/vue.js"></script>
+	<script src="./js/vue/vuetify.js"></script>
+	<script src="./js/axios.min.js"></script>
+	<script src="./js/common.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/widget-jquery.autocomplete.css" />
+    <link rel="stylesheet" type="text/css" href="css/pages-seckill-index.css" />
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<link rel="bookmark" type="image/x-icon" href="favicon.ico">
+	<link href="/css/fashionfoucs_lrtk.css" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+	<!-- 头部栏位 -->
+	<!--页面顶部，由js动态加载-->
+	<script type="text/javascript" src="plugins/jquery/jquery.min.js"></script>
+	<script src="/js/timedown.js" type="text/javascript"></script>
+	<div id="nav-bottom"></div>
+    <script type="text/javascript">$("#nav-bottom").load("top.html");</script>
+
+
+<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#service").hover(function(){
+		$(".service").show();
+	},function(){
+		$(".service").hide();
+	});
+	$("#shopcar").hover(function(){
+		$("#shopcarlist").show();
+	},function(){
+		$("#shopcarlist").hide();
+	});
+
+})
+</script>
+<script type="text/javascript" src="js/plugins/sui/sui.min.js"></script>
+<script type="text/javascript" src="js/widget/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="js/widget/nav.js"></script>
+<script type="text/javascript" src="js/pages/seckill-index.js"></script>
+<script>
+	   $(function(){
+		   $("#code").hover(function(){
+			   $(".erweima").show();
+		   },function(){
+			   $(".erweima").hide();
+		   });
+	   })
+	</script>
+</body>
+
+	<div class="py-container index" id="seckillApp">
+		<!--banner-->
+		<div class="banner">
+			<ul id="banner_img">
+				<li class="item1">
+					<div class="wrapper">
+						<div  class="bottom" style="text-align: center;color: firebrick;font-size: xx-large;padding-top: 50px">距离秒杀开始还有</div>
+						<div id="countdown_dashboard">
+							<div class="dash days_dash">
+								<div class="digit">
+									<!--<div class="top" style="margin-left: -50px;margin-top:30px">00</div>-->
+									<div class="bottom" style="margin-left: -10px;">00</div>
+								</div>
+								<div class="digit">
+									<div class="top"></div>
+									<div class="bottom"></div>
+								</div>
+							</div>
+							<div class="dash hours_dash">
+								<div class="digit">
+									<div class="bottom" style="margin-left: -10px;"v-if="time.H>10">{{time.H}}</div>
+									<div class="bottom" style="margin-left: -10px;"v-else>0{{time.H}}</div>
+								</div>
+								<div class="digit">
+									<div class="top"></div>
+									<div class="bottom"></div>
+								</div>
+							</div>
+							<div class="dash minutes_dash">
+								<div class="digit">
+									<div class="bottom" style="margin-left: -10px;"v-if="time.M>10">{{time.M}}</div>
+									<div class="bottom" style="margin-left: -10px;"v-else>0{{time.M}}</div>
+								</div>
+								<div class="digit">
+									<div class="top"></div>
+									<div class="bottom"></div>
+								</div>
+							</div>
+							<div class="dash seconds_dash">
+								<div class="digit">
+									<div class="bottom" style="margin-left: -10px;"v-if="time.S>10">{{time.S}}</div>
+									<div class="bottom" style="margin-left: -10px;"v-else>0{{time.S}}</div>
+								</div>
+								<div class="digit">
+									<div class="top"></div>
+									<div class="bottom"></div>
+								</div>
+							</div>
+						</div>
+						<div class="kkg_timetoor"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!--商品列表-->
+		<div class="goods-list">
+			<ul class="seckill" id="seckill">
+				<li class="seckill-item" v-for="(sku,i) in skulist" :key="i">
+					<a :href="'seckill-item/'+sku.id+'.html'" ><div class="pic">
+						<img :src="sku.images.split(',')[0]" alt=''  >
+					</div>
+					</a>
+					<div class="intro"><span>{{sku.title}}</span></div>
+					<div class='price'><b class='sec-price'>￥{{ly.formatPrice(sku.price-20000)}}</b><b class='ever-price'>￥{{ly.formatPrice(sku.price)}}</b></div>
+					<div class='num'>
+						<div>已售{{(sku.seckillTotal-sku.seckillStock)/sku.seckillTotal*100}}%</div>
+						<div class='progress'>
+							<div class='sui-progress progress-danger'><span :style="{'width':(sku.seckillTotal-sku.seckillStock)/sku.seckillTotal*100+'%'}" class='bar'></span></div>
+						</div>
+						<div>剩余<b class='owned'>{{sku.seckillStock}}</b>件</div>
+					</div>
+					<a class='sui-btn btn-block btn-buy ' href='javaScript:void(0)' target='_blank' @click.once="buyItNow(sku,sku.id)">立即抢购</a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="fr">
+			<div class="sui-pagination pagination-large">
+				<ul>
+					<li :class="{prev:true, disabled:page==1}">
+						<a href="#" @click="lastPage">«上一页</a>
+					</li>
+					<li :class="{active:page==index(j)}" v-for="j in Math.min(5,totalPage)">
+						<a href="#" @click="page=index(j)">{{index(j)}}</a>
+					</li>
+					<li class="dotted" v-if="totalPage-2>page"><span>...</span></li>
+					<li class="{next:true, disabled:page==totalPage}">
+						<a href="#" @click="nextPage">下一页»</a>
+					</li>
+				</ul>
+				<div><span>共{{totalPage}}页&nbsp;</span><span>
+      到第
+      <input type="text" class="page-num" v-model="pageValue">
+      页 <button class="page-confirm" @click="jumpPage">确定</button></span></div>
+			</div>
+		</div>
+		<div class="cd-top">
+			<div class="top">
+				<img src="img/_/gotop.png" />
+				<b>TOP</b>
+			</div>
+			<div class="code" id="code">
+				<span><img src="img/_/code.png"/></span>
+			</div>
+			<div class="erweima">
+				<img src="img/_/erweima.jpg" alt="">
+				<s></s>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+    var vm = new Vue({
+     	el: "#seckillApp",
+        data: {
+            ly,
+            skulist: [],
+            totalPage: 0,
+            total: 0,
+            page: 1,
+			rows:12,
+            pageValue:"",
+            show:false,
+			time:{},
+            flag:false
+        },
+       created() {
+            // 发起请求，根据条件搜索
+            this.seckillQuery();
+           let a = setInterval(()=>{
+               if(this.flag){
+                   clearInterval(a)
+               }
+               this.getTimeDown()
+           },500)
+        },
+       /* mounted () {
+
+        },*/
+        methods: {
+            seckillQuery() {
+                ly.http.get("/item/sku/page?page=" + parseInt(this.page) + "&rows=" + this.rows).then(({data}) => {
+                    this.skulist = data.items;
+                    this.total = data.total;
+                    this.totalPage = data.totalPage;
+                });
+            },
+            nextPage() {
+                this.page < this.totalPage ? this.page++ : this.page;
+            },
+            lastPage() {
+                this.page > 1 ? this.page-- : this.page;
+            }, //计算页面上显示的页码按钮 ,每次显示五个按钮，当前页按钮应居中
+            index(i) {
+                if (this.page < 3) {
+                    //当当前页小于3时，直接从1开始遍历，每个按钮的值为i
+                    return i;
+                } else if (this.totalPage - 2 > this.page) {
+                    //当当前页大于等于3并且小于总页数减2时，从当前页-3加上当前的第i个按钮开始显示按钮数值
+                    //如当前页为10时，应从10-3+1=8开始显示
+                    return this.page - 3 + i;
+                } else {
+                    //当当前页大于totalPage-2时，如：totalPage=12，应从12-5+1=8开始显示
+                    return this.totalPage - 5 + i;
+                }
+            },
+            jumpPage() {
+                this.page = parseInt(this.pageValue);
+            },
+        	buyItNow(sku,skuId){
+                ly.verifyUser().then(()=>{
+                    ly.http.post("/seckill",skuId).then(()=>{
+                        ly.store.set("sku",sku);
+				window.location.href="secKillOrderInfo.html"+data;
+                    }).catch(()=>{
+                        alert("排队的人有点多，请耐心等候！");
+					})
+				}).catch(()=>{
+				    window.location="login.html?returnUrl="+window.location;
+				})
+
+		},
+			getTimeDown(){
+                const endTime = new Date(2018,8,14,18)
+                const now = new Date();
+                var differ =endTime - now;
+                var remainTime = differ / 1000;   //换算为秒
+				const obj={};
+                obj.D = parseInt(remainTime / 24 / 3600);
+                obj.H = parseInt((remainTime - this.time.D * 24 * 3600) / 3600);
+                obj.M = parseInt((remainTime - this.time.D * 24 * 3600 - this.time.H * 3600) / 60);
+                obj.S = parseInt((remainTime - this.time.D* 24 * 3600 - this.time.H * 3600 -this.time.M * 60));
+                this.time=obj;
+            }
+			},
+		watch: {
+            page: {
+                deep: true,
+                handler(val) {
+                    // 把search对象变成请求参数，拼接在url路径
+                    this.seckillQuery();
+                }
+            }
+        },
+        components: {
+            lyTop: () => import("./js/pages/top.js")
+        }})
+</script>
+	<!-- 底部栏位 -->
+	<!--页面底部，由js动态加载-->
+	<div class="clearfix footer"></div>
+	<script type="text/javascript">$(".footer").load("foot.html");</script>
+	<!--页面底部END-->
+
+</html>

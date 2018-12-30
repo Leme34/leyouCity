@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/leyou" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-auth-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-cart" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-goods-page" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-item" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-item/ly-item-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-item/ly-item-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-registry" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-sms-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-upload" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-user/ly-user-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou/ly-user/ly-user-service" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

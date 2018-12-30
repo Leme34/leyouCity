@@ -1,0 +1,69 @@
+server:
+  port: 10010
+
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    refresh:
+      refreshable: none  #不加入会造成循环依赖?
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+
+
+zuul:
+  prefix: /api  # 添加路由前缀
+  routes:
+    item-service: /item/**
+    upload-service:  #用这种配置方式才能使跳转到ly-upload后路径上还有/upload
+      path: /upload/**
+      serviceId: upload-service
+      strip-prefix: false
+    search-service: /search/**
+    user-service: /user/**
+    auth-service: /auth/**
+    cart-service: /cart/**
+    order-service: /order/**
+  add-host-header: true    #配置允许携带请求头中的host信息到微服务
+  sensitive-headers:       #指定需要过滤的敏感头信息(空着说明不过滤),不写会使用的ZuulProperties默认配置过滤
+
+ribbon:
+  ConnectTimeout: 1000 # 连接超时时间(ms)
+  ReadTimeout: 3500 # 通信超时时间(ms)
+
+#关闭重试,避免重复提交请求
+#  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 0 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 0 # 同一实例的重试次数
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 5000 # 熔断超时时长：5000ms
+
+
+# 自定义配置
+ly:
+  jwt: #jwt自定义配置
+    pubKeyPath: D:/ideaWorkPlace/leyou-city/rsa.pub # 公钥地址
+    expire: 30   # 过期时间,单位分钟
+    cookieMaxAge: 1800
+    cookieName: LY_TOKEN
+  filter:   #过滤器自定义配置
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item

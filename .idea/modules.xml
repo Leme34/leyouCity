@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/leyou/leyou.iml" filepath="$PROJECT_DIR$/leyou/leyou.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/leyou-city.iml" filepath="$PROJECT_DIR$/.idea/leyou-city.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-center.iml" filepath="$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-common/ly-auth-common.iml" filepath="$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-common/ly-auth-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-service/ly-auth-service.iml" filepath="$PROJECT_DIR$/leyou/ly-auth-center/ly-auth-service/ly-auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-cart/ly-cart.iml" filepath="$PROJECT_DIR$/leyou/ly-cart/ly-cart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-common/ly-common.iml" filepath="$PROJECT_DIR$/leyou/ly-common/ly-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-gateway/ly-gateway.iml" filepath="$PROJECT_DIR$/leyou/ly-gateway/ly-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-goods-page/ly-goods-page.iml" filepath="$PROJECT_DIR$/leyou/ly-goods-page/ly-goods-page.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-item/ly-item.iml" filepath="$PROJECT_DIR$/leyou/ly-item/ly-item.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-item/ly-item-interface/ly-item-interface.iml" filepath="$PROJECT_DIR$/leyou/ly-item/ly-item-interface/ly-item-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-item/ly-item-service/ly-item-service.iml" filepath="$PROJECT_DIR$/leyou/ly-item/ly-item-service/ly-item-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-order/ly-order.iml" filepath="$PROJECT_DIR$/leyou/ly-order/ly-order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-registry/ly-registry.iml" filepath="$PROJECT_DIR$/leyou/ly-registry/ly-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-search/ly-search.iml" filepath="$PROJECT_DIR$/leyou/ly-search/ly-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-sms-service/ly-sms-service.iml" filepath="$PROJECT_DIR$/leyou/ly-sms-service/ly-sms-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-upload/ly-upload.iml" filepath="$PROJECT_DIR$/leyou/ly-upload/ly-upload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-user/ly-user.iml" filepath="$PROJECT_DIR$/leyou/ly-user/ly-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-user/ly-user-interface/ly-user-interface.iml" filepath="$PROJECT_DIR$/leyou/ly-user/ly-user-interface/ly-user-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leyou/ly-user/ly-user-service/ly-user-service.iml" filepath="$PROJECT_DIR$/leyou/ly-user/ly-user-service/ly-user-service.iml" />
+    </modules>
+  </component>
+</project>

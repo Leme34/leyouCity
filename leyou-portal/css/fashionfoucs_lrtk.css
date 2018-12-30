@@ -1,0 +1,50 @@
+@charset "UTF-8";
+html { color: #000; background: #FFF; }
+body, div, ul, li,p,h2,ul,dt,dd,dl{ margin: 0; padding: 0; }
+img { border: 0; }
+li { list-style: none; }
+body { font-family: Microsoft YaHei, Segoe UI, Tahoma, Arial, Verdana, sans-serif; font-size: 12px; color: #666; background: #fff; }
+a { color: #39f; text-decoration: none; }
+a:hover { text-decoration: none; }
+.wrapper { width: 986px; margin: 0 auto; position: relative;}
+#banner { width: 100%; height:800px; background: #000; overflow: hidden; position: relative; }
+#banner_img { display: block; position: relative; }
+#banner_img li.item1,#banner_img li.item2,#banner_img li.item3,#banner_img li.item4,#banner_img li.item5,#banner_img li.item6,#banner_img li.item7,#banner_img li.item8{  top: 0; left: 0; width: 100%; height: 300px; background-position: center; background-size: cover; display: none; }
+/*ñͼƬ-------ʼ*/
+#banner_img li.item1 { background:url(../images/bg.jpg) no-repeat center top; display: block; }
+#banner_img li.item2 { background: url(../images/banner_bg2.jpg) no-repeat center top; }
+#banner_img li.item3 { background: url(../images/banner_bg3.jpg) no-repeat center top; }
+#banner_img li.item4 { background: url(../images/banner_bg4.jpg) no-repeat center top; }
+#banner_img li.item5 { background: url(../images/banner_bg5.jpg) no-repeat center top; }
+#banner_img li.item6 { background: url(../images/banner_bg6.jpg) no-repeat center top; }
+#banner_img li.item7 { background: url(../images/banner_bg6.jpg) no-repeat center top; }
+#banner_img li.item8{ background:url(../images/bg.jpg) no-repeat center top;}
+.wolxhz{padding:220px 0 0 65px;}
+/*ñͼƬ--------*/
+#banner_img .ad_img { position: absolute; right:5px; top:134px; width: 506px; height: 404px; }
+#banner_img li.item5  .ad_img{top:60px;} 
+#banner_img li.item6  .ad_img{top:156px;} 
+#banner_img .ad_txt { position: absolute; left:4px; top: 185px; color: #fff; text-shadow: 1px 1px rgba(51, 51, 51, 0.3); }
+#banner_img .ad_txt h2 { font: bold 36px/60px Microsoft YaHei; padding:30px 0;}
+#banner_img .ad_txt p{font:14px/25px Microsoft YaHei; }
+#banner_img .ad_txt a { display: block; width: 101px; height: 29px;text-align: center; margin-top: 13px; background: #e95513; color: #fff; text-decoration: none; text-shadow: none; font:14px/27px Microsoft YaHei; }
+#banner_img .item4 .ad_txt a{float:left; display:inline; margin-right:10px;}
+#banner_img .item4 .ad_txt .a1{background-color:#a2c432;}
+#banner_img .item1 .sy_txt{top:73px;position: absolute; left:4px;color: #fff; text-shadow: 1px 1px rgba(51, 51, 51, 0.3);}
+#banner_img .item1 .sy_txt h2{ font: bold 36px/60px Microsoft YaHei; width:500px; height:65px;}
+#banner_img .item1 .sy_txt p{padding-left:341px; padding-top:80px;}
+#banner_img .item1 .sy_img{top:142px; width:471px; right:0;position: absolute; }
+
+
+.kkg_timedown { position:absolute; top:330px; left:50%; width:981px; margin-left:-485px; height:121px; background:url(../images/digits_bg.png) no-repeat left center; }
+
+/* Top style */
+#countdown_dashboard { top:100px; left:50%; margin-left:-460px; width:950px; position: relative; overflow: hidden; height:121px; background:url(../images/time_bg.png) no-repeat; }
+.kkg_timetoor { top:265px; left:50%; width:828px; height:11px; margin-left:-460px; width:950px; position: relative; }
+.dash { float: left; height: 121px; margin: 0 107px 0 0; position: relative; display: inline; width: 114px; line-height:121px; text-align:center; padding-left:14px; }
+.dash .digit { float:left; display:inline; font:bold 78px/121px "微软雅黑", Tahoma, Geneva, sans-serif; position: relative; color:#fff; width:48px; padding-left:14px}
+.kkg_smalltime { top:330px; left:50%; margin-left:-280px; font:18px/49px "微软雅黑"; top:35px; color:#94c849;  padding-left:65px; position:absolute; height:49px; width:300px; }
+.countdown_dashboard2 { width:220px; overflow: hidden; height:38px; position:relative; top:-40px; left:48px; background:url(../images/time_bg2.png) no-repeat; }
+.countdown_dashboard2 .dash { height:34px; padding-left:11px; width:26px; margin-right:18px }
+.countdown_dashboard2 .dash .digit { font:bold 18px/34px "微软雅黑", Tahoma, Geneva, sans-serif; width:11px; }
+.kkg_timetoor2 { width:200px; overflow: hidden; height:9px; position:relative; top:-65px; left:52px; background:url(../images/time_toor2.png) no-repeat; }

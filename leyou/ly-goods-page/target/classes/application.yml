@@ -1,0 +1,26 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: goods-page
+  thymeleaf:
+    cache: false
+  rabbitmq:
+    host: 192.168.11.101
+    username: leyou
+    password: 123
+    virtual-host: /leyou   #在RabbitMQ中可以虚拟消息服务器VirtualHost，每个VirtualHost相当月一个相对独立的RabbitMQ服务器，每个VirtualHost之间是相互隔离的。exchange、queue、message不能互通。 相当于mysql的db。
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5      # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10  # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}.${server.port}
+ly:
+  thymeleaf:
+    destPath: D:/develop/nginx-1.12.2/html/item

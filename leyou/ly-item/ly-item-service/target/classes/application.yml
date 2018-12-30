@@ -1,0 +1,46 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: item-service
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.11.102:3306/leyou
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+  cloud:
+    refresh:
+      refreshable: none
+  rabbitmq:
+    host: 192.168.11.101
+    username: admin
+    password: 123
+    virtual-host: /leyou    #在RabbitMQ中可以虚拟消息服务器VirtualHost，每个VirtualHost相当月一个相对独立的RabbitMQ服务器，每个VirtualHost之间是相互隔离的。exchange、queue、message不能互通。 相当于mysql的db。
+    template:  #配置spring整合rabbitmq的AmqpTemplate
+      retry:
+        enabled: true    #开启重试
+        initial-interval: 10000ms   #首次失败10s后重试
+        max-interval: 30000ms   #最大重试间隔
+        multiplier: 2   #重试间隔2倍增长,使重试间隔越来越长
+      exchange: ly.item.exchange    #默认把消息发到此交换机
+    publisher-confirms: true    #开启生产者确认,若发送失败则会重试
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true     #显示服务的ip地址
+    ip-address: 127.0.0.1
+
+# 通用 Mapper 配置
+mapper:
+  identity: MYSQL
+  not-empty: false
+
+#显示sql语句
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
